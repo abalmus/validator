@@ -1,0 +1,50 @@
+{
+  "name": "@abalmush/validator",
+  "version": "1.2.5",
+  "description": "Core for Validator ",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run test && tsc",
+    "test": "NODE_ENV=development nyc ./node_modules/mocha/bin/mocha -r ts-node/register src/__tests__/**/*.test.ts"
+  },
+  "author": "Andrei Balmus <abalmush@gmail.com> (http://abalmus.com)",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "typescript": "^2.6.2",
+    "whatwg-fetch": "^2.0.3",
+    "xregexp": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.10",
+    "@types/es6-promise": "0.0.33",
+    "@types/mocha": "^2.2.45",
+    "chai": "^4.1.2",
+    "isomorphic-fetch": "^2.2.1",
+    "mocha": "^4.1.0",
+    "nock": "^9.1.6",
+    "nyc": "^11.4.1",
+    "ts-node": "^4.1.0",
+    "typings": "^2.1.1"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx",
+      ".js"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }
+}
