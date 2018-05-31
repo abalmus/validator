@@ -8,6 +8,11 @@
     "prepublish": "npm run test && tsc",
     "test": "NODE_ENV=development nyc ./node_modules/mocha/bin/mocha -r ts-node/register src/__tests__/**/*.test.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abalmus/validator.git"
+  },
+  "keywords": ["validator", "async", "validation", "processor"],
   "author": "Andrei Balmus <abalmush@gmail.com> (http://abalmus.com)",
   "license": "MIT",
   "dependencies": {
