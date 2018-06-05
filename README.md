@@ -8,10 +8,10 @@
 
 ```javascript
 // NPM
-npm install @abalmush/validator
+npm install @abalmus/validator
 
 // YARN
-yarn add @abalmush/validator
+yarn add @abalmus/validator
 ```
 
 # Usage
@@ -19,7 +19,7 @@ yarn add @abalmush/validator
 ### Validation processor initialization
 
 ```javascript
-import { ValidationProcessor } from '@abalmush/validator';
+import { ValidationProcessor } from '@abalmus/validator';
 
 const constrains = {
   rules: {
@@ -51,7 +51,7 @@ validationProcessor.validate('firstName', 'myname');
 The easiest way of getting errors from validation processor is using ErrorPopulator.
 
 ```javascript
-import { ErrorsPopulator } from '@abalmush/validator';
+import { ErrorsPopulator } from '@abalmus/validator';
 /*
 	* ErrorPopulator constructor
 	* params: ( validationProcessorInstance, [options] )
@@ -138,7 +138,7 @@ The most important part of this library is a creation of custom validators. This
     import {
         validator,
         ValidationProcessor
-    } from '@abalmush/validator';
+    } from '@abalmus/validator';
 
     validator.registerValidator('moreOrEqual', (value, ruleValue) => {
         return (Number(value) >= Number(ruleValue));
