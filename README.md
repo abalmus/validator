@@ -68,7 +68,7 @@ errors.getByField('firstName').then((errors) => console.log(errors));
 // [{minlength: "First name needs to be not less than 10 characters"}]
 ```
 # Validators
-## Build in Validators
+## Built-in Validators
 
 ```javascript
     const constrains = {
