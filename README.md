@@ -8,10 +8,10 @@
 
 ```javascript
 // NPM
-npm install @abalmus/validator
+npm install @tacitknowledge/validator
 
 // YARN
-yarn add @abalmus/validator
+yarn add @tacitknowledge/validator
 ```
 
 # Usage
@@ -19,7 +19,7 @@ yarn add @abalmus/validator
 ### Validation processor initialization
 
 ```javascript
-import { ValidationProcessor } from '@abalmus/validator';
+import { ValidationProcessor } from '@tacitknowledge/validator';
 
 const constrains = {
   rules: {
@@ -138,7 +138,7 @@ The most important part of this library is a creation of custom validators. This
     import {
         validator,
         ValidationProcessor
-    } from '@abalmus/validator';
+    } from '@tacitknowledge/validator';
 
     validator.registerValidator('moreOrEqual', (value, ruleValue) => {
         return (Number(value) >= Number(ruleValue));
