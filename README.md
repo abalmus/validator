@@ -102,7 +102,7 @@ Simple equality check, comparing value and type.
 JavaScript Regexp test method executes a search for a match between a regular expression provided in `pattern` property and a specified string.
 
 ### "async" validator
-Async validator created for server side validations. The example email address existence, when you make an ajax call to check if email exists or not.
+Async validator created for server side validations. For example email address existence, when you make an ajax call to check if email exists or not.
 
 ```javascript
     const constrains = {
@@ -171,7 +171,7 @@ Now we can use `moreOrEqual` validator inside constrains.
 
 One more powerful and useful mechanism is `dependsOn` rules wrapper. This wrapper allows to apply validation rules depends on other values.
 
-The example phone pattern for Germany is different than in the United States.
+For example phone pattern for Germany is different than in the United States.
 
 ```javascript
     const constrains = {
