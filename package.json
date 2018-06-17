@@ -1,5 +1,5 @@
 {
-  "name": "@abalmus/validator",
+  "name": "@tacitknowledge/validator",
   "version": "1.4.0",
   "description": "Core for Validator ",
   "main": "lib/index.js",
