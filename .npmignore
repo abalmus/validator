@@ -3,3 +3,12 @@ node_modules/
 npm-shrinkwrap.json
 tsconfig.json
 __tests__
+tsconfig.json
+.nyc_output/
+coverage/
+tslint.json
+tsconfig.json
+.gitignore
+yarn-error.log
+yarn.lock
+.babelrc
