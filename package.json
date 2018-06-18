@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prepublish": "npm run test && tsc",
+    "prepublish": "npm run clean && npm run test && tsc",
+    "clean": "rimraf lib",
     "test": "NODE_ENV=development nyc ./node_modules/mocha/bin/mocha -r ts-node/register src/__tests__/**/*.test.ts"
   },
   "repository": {
@@ -35,6 +36,7 @@
     "mocha": "^4.1.0",
     "nock": "^9.1.6",
     "nyc": "^11.4.1",
+    "rimraf": "^2.6.2",
     "ts-node": "^4.1.0",
     "typings": "^2.1.1"
   },
