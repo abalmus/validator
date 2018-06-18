@@ -1,6 +1,6 @@
 {
   "name": "@tacitknowledge/validator",
-  "version": "1.4.1-0",
+  "version": "1.4.1",
   "description": "Core for Validator ",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
