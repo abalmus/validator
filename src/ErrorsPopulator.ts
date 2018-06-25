@@ -20,6 +20,18 @@ export class ErrorsPopulator implements ErrorsPopulatorI {
         return convertedErrors;
     }
 
+    public getAll(fieldNames: string[]) {
+        const errors = [];
+
+        fieldNames.length && fieldNames.map(fieldName => {
+            errors.push(
+                this.errorConverter(
+                    Object.assign({}, this.validationProcessor.processorQueue.process(fieldName)),
+                )
+            );
+        })
+    }
+
     public getByField(fieldName: string) {
         return new Promise((resolve, reject) => {
             if (first(keys(this.validationProcessor.asyncProcessorQueue.process(fieldName)))) {
