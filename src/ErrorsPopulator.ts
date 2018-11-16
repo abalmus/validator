@@ -11,25 +11,27 @@ export class ErrorsPopulator implements ErrorsPopulatorI {
     }
 
     public errorConverter(errors: any[]) {
-        const convertedErrors = [];
+        const convertedErrors = {};
 
         keys(errors).map(key => {
-            convertedErrors.push({[errors[key].ruleName]: errors[key].reason} );
+            convertedErrors[errors[key].ruleName] = errors[key].reason;
         });
 
         return convertedErrors;
     }
 
     public getAll(fieldNames: string[]) {
-        const errors = [];
+        const errors = {};
 
         fieldNames.length && fieldNames.map(fieldName => {
-            errors.push(
-                this.errorConverter(
+            if (!this.validationProcessor.isDisabled(fieldName)) {
+                errors[fieldName] = this.errorConverter(
                     Object.assign({}, this.validationProcessor.processorQueue.process(fieldName)),
-                )
-            );
+                );
+            }
         })
+
+        return errors;
     }
 
     public getByField(fieldName: string) {

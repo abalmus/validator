@@ -37,12 +37,19 @@ export const testValidationRules = {
             }
         },
 
-    'field2': {
+        'field2': {
             'async': {
                 'url': 'some/url',
                 'allowSubmitOnFail': 'true',
                 'attempts': 2
             },
+            'minlength': 10
+        },
+
+        'field3': {
+            'minlength': 5
+        },
+        'field4': {
             'minlength': 10
         }
     },
@@ -50,6 +57,12 @@ export const testValidationRules = {
     'messages': {
         'field2': {
             'async': 'Something went wrong',
+            'minlength': 'Please enter min 10 characters'
+        },
+        'field3': {
+            'minlength': 'Please enter min 5 characters'
+        },
+        'field4': {
             'minlength': 'Please enter min 10 characters'
         }
     }

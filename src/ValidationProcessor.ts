@@ -21,7 +21,9 @@ export namespace Validation {
         asyncProcessorQueue: AsyncProcessorQueue;
         processedConstraints: any;
         processorQueue: ProcessorQueue;
+        disabledValidationFields: any;
         validate(ruleHolderName: string, value: any): any;
+        isDisabled(fieldName: string): boolean;
     }
 
     export interface ProcessorConfig {
@@ -35,6 +37,7 @@ export class ValidationProcessor implements Validation.ValidationProcessor {
     processedConstraints: any = {};
     asyncProcessorQueue: AsyncProcessorQueue;
     processorQueue: ProcessorQueue;
+    disabledValidationFields: any = {};
 
     /* test-code */
     __testApi = {
@@ -88,6 +91,18 @@ export class ValidationProcessor implements Validation.ValidationProcessor {
         };
     }
 
+    disableFieldValidation(fieldName: string) {
+        this.disabledValidationFields[fieldName] = true;
+    }
+
+    enableFieldValidation(fieldName: string) {
+        delete this.disabledValidationFields[fieldName];
+    }
+
+    isDisabled(fieldName: string) {
+        return Boolean(this.disabledValidationFields[fieldName]);
+    }
+
     private setDependsOnValues(dependsOnValues, rules) {
         if (dependsOnValues) {
             const validationRulesToApply = initialDependsOnDetection(rules, dependsOnValues);
@@ -123,9 +138,16 @@ export class ValidationProcessor implements Validation.ValidationProcessor {
     }
 
     private filterConstraintsByFieldName(fieldName: string): Validation.ValidationRules {
+        if (this.constraints.messages && this.constraints.rules) {
+            return {
+                messages: this.constraints.messages[fieldName],
+                rules: this.constraints.rules[fieldName],
+            };
+        }
+
         return {
-            messages: this.constraints.messages[fieldName],
-            rules: this.constraints.rules[fieldName],
+            messages: null,
+            rules: null
         };
     }
 }

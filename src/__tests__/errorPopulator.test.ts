@@ -33,4 +33,20 @@ describe('Error Populator', () => {
             expect(errors).to.deep.include({ async: {} });
         });
     });
+
+    it('should return errors for listed fields only', () => {
+        validationProcessor.validate('field3', '12');
+        validationProcessor.validate('field4', 'test');
+
+        const errors = errorsPopulator.getAll(['field3', 'field4']);
+        const errorsFiltered = errorsPopulator.getAll(['field3']);
+
+        expect(errors).to.have.property('field3');
+        expect(errors).to.have.property('field4');
+        expect(errors['field3']).to.deep.include({ minlength: 'Please enter min 5 characters' });
+        expect(errors['field4']).to.deep.include({ minlength: 'Please enter min 10 characters' });
+        expect(errorsFiltered).to.have.property('field3');
+        expect(errorsFiltered['field3']).to.deep.include({ minlength: 'Please enter min 5 characters' });
+        expect(errorsFiltered).to.not.have.property('field4');
+    });
 });
